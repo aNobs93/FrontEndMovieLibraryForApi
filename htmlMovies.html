@@ -28,15 +28,9 @@
 
     <p><input type="button" id="bt" value="Submit Movie" onclick="submit()" /></p>
 </body>
-   <!-- <header>
+   <header>
         <h1>Movie Database</h1>
     </header>
-    <h2>Add a Movie</h2>
-    <p>Title: <input type ="text" id="Title"></p>
-    <p>Genre: <input type ="text" id="Genre"></p>
-    <p>Director: <input type ="text" id="Director"></p>
-    <button id="add-movie">Add!</button>
-    <p><input type="button" id="bt" value="Add" onclick="submit()"/></p>
 
     <div class="container">
         <table>
@@ -54,24 +48,16 @@
                       <th colspan="1">
                           <h2>Director</h2>
                       </th>
-                      <!-- <th colspan="1">
+                      <th colspan="1">
                         <h2>Movie Poster</h2>
-                    </th> -->
+                    </th>
                   </tr>
             </thead>
-<<<<<<< HEAD
         <tbody>
-              <tr><td class="left"><h4 id="Title"><a href="https://www.imdb.com/title/tt0407887/?ref_=fn_al_tt_1">The Departed</a></h4></td>
+            <!-- <tr><td class="left"><h4 id="Title"><a href="https://www.imdb.com/title/tt0407887/?ref_=fn_al_tt_1">The Departed</a></h4></td>
                 <td><h4 id="Genre">Drama</h4></td>
                 <td><h4 id="Director">Martin Scorsese</h4></td>
                 <td><img src="https://imgc.allpostersimages.com/img/print/u-g-F4Q3T40.jpg?w=900&h=900&p=0" width="150" height="150"/></td>
-=======
-        <tbody id ="movies">
-              <!-- <tr><td class="left"><h4></h4></td>
-                <td><h4></h4></td>
-                <td><h4></h4></td> -->
-             <!--   <td><img src="https://imgc.allpostersimages.com/img/print/u-g-F4Q3T40.jpg?w=900&h=900&p=0" width="150" height="150"/></td>
->>>>>>> bd8d479dbe204562f8c30a6de490c379c4f932ee
             </tr>
               <tr><td class="left"><h4><a href="https://www.imdb.com/title/tt0468569/?ref_=nv_sr_srsg_0">The Dark Knight</a></h4></td>
                 <td><h4>Drama</h4></td>
@@ -102,105 +88,18 @@
         <h3></h3>
         <h3></h3>
     </footer> -->
-    <script>
-    var arrHead = new Array();
-    arrHead = ['', 'Title', 'Genre', 'Director'];
-    
-    function createTable() {
-        var movieTable = document.createElement('table');
-        movieTable.setAttribute('id', 'movieTable');
-
-        var tr = movieTable.insertRow(-1);
-
-        for (var h = 0; h < arrHead.length; h++) {
-            var th = document.createElement('th'); 
-
-            th.innerHTML = arrHead[h];
-            tr.appendChild(th);
-        }
-
-        var div = document.getElementById('cont');
-        div.appendChild(movieTable);
-    }
-
-    function addRow() {
-        var movTab = document.getElementById('movieTable');
-
-        var rowCnt = movTab.rows.length; 
-        var tr = movTab.insertRow(rowCnt);      // TABLE ROW.
-        tr = movTab.insertRow(rowCnt);
-
-        for (var c = 0; c < arrHead.length; c++) {
-            var td = document.createElement('td');
-            td = tr.insertCell(c);
-
-if (c == 0) {           // FIRST COLUMN.
-    // ADD A BUTTON.
-    var button = document.createElement('input');
-
-    // SET INPUT ATTRIBUTE.
-    button.setAttribute('type', 'button');
-    button.setAttribute('value', 'Remove');
-
-    // ADD THE BUTTON's 'onclick' EVENT.
-    button.setAttribute('onclick', 'removeRow(this)');
-
-    td.appendChild(button);
-}
-else {
-    // CREATE AND ADD TEXTBOX IN EACH CELL.
-    var ele = document.createElement('input');
-    ele.setAttribute('type', 'text');
-    ele.setAttribute('value', '');
-
-    td.appendChild(ele);
-}
-}
-}
-
- // DELETE TABLE ROW.
- function removeRow(oButton) {
-        var movTab = document.getElementById('movieTable');
-        movTab.deleteRow(oButton.parentNode.parentNode.rowIndex);       // BUTTON -> TD -> TR.
-    }
-
-    // EXTRACT AND SUBMIT TABLE DATA.
-    function submit() {
-        var myTab = document.getElementById('movieTable');
-        var values = new Array();
-
-        // LOOP THROUGH EACH ROW OF THE TABLE.
-        for (row = 1; row < myTab.rows.length - 1; row++) {
-            for (c = 0; c < myTab.rows[row].cells.length; c++) {   // EACH CELL IN A ROW.
-
-                var element = myTab.rows.item(row).cells[c];
-                if (element.childNodes[0].getAttribute('type') == 'text') {
-                    values.push("'" + element.childNodes[0].value + "'");
-                }
-            }
-        }
-        
-        // SHOW THE RESULT IN THE CONSOLE WINDOW.
-        console.log(values);
-    }
-    </script>
+   
     <script class id = "url" src="https://localhost:44352/api/Movie"></script>
     <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src = "jsMovie.js"></script>
-    <!-- <script>
+    <script>
     $(function(){
         $.ajax({
             type: 'Get',
             url: 'https://localhost:44352/Api/Movie',
             success: function(data){
-                console.log("This one");
+                console.log('success', data);
             }
         });
-<<<<<<< HEAD
     });</script>
 
-=======
-    });</script> -->
-</body>
->>>>>>> bd8d479dbe204562f8c30a6de490c379c4f932ee
 </html>
