@@ -31,6 +31,12 @@
    <!-- <header>
         <h1>Movie Database</h1>
     </header>
+    <h2>Add a Movie</h2>
+    <p>Title: <input type ="text" id="Title"></p>
+    <p>Genre: <input type ="text" id="Genre"></p>
+    <p>Director: <input type ="text" id="Director"></p>
+    <button id="add-movie">Add!</button>
+    <p><input type="button" id="bt" value="Add" onclick="submit()"/></p>
 
     <div class="container">
         <table>
@@ -48,16 +54,24 @@
                       <th colspan="1">
                           <h2>Director</h2>
                       </th>
-                      <th colspan="1">
+                      <!-- <th colspan="1">
                         <h2>Movie Poster</h2>
-                    </th>
+                    </th> -->
                   </tr>
             </thead>
+<<<<<<< HEAD
         <tbody>
               <tr><td class="left"><h4 id="Title"><a href="https://www.imdb.com/title/tt0407887/?ref_=fn_al_tt_1">The Departed</a></h4></td>
                 <td><h4 id="Genre">Drama</h4></td>
                 <td><h4 id="Director">Martin Scorsese</h4></td>
                 <td><img src="https://imgc.allpostersimages.com/img/print/u-g-F4Q3T40.jpg?w=900&h=900&p=0" width="150" height="150"/></td>
+=======
+        <tbody id ="movies">
+              <!-- <tr><td class="left"><h4></h4></td>
+                <td><h4></h4></td>
+                <td><h4></h4></td> -->
+             <!--   <td><img src="https://imgc.allpostersimages.com/img/print/u-g-F4Q3T40.jpg?w=900&h=900&p=0" width="150" height="150"/></td>
+>>>>>>> bd8d479dbe204562f8c30a6de490c379c4f932ee
             </tr>
               <tr><td class="left"><h4><a href="https://www.imdb.com/title/tt0468569/?ref_=nv_sr_srsg_0">The Dark Knight</a></h4></td>
                 <td><h4>Drama</h4></td>
@@ -172,15 +186,21 @@ else {
     </script>
     <script class id = "url" src="https://localhost:44352/api/Movie"></script>
     <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script>
+    <script src = "jsMovie.js"></script>
+    <!-- <script>
     $(function(){
         $.ajax({
             type: 'Get',
             url: 'https://localhost:44352/Api/Movie',
             success: function(data){
-                console.log('success', data);
+                console.log("This one");
             }
         });
+<<<<<<< HEAD
     });</script>
 
+=======
+    });</script> -->
+</body>
+>>>>>>> bd8d479dbe204562f8c30a6de490c379c4f932ee
 </html>
