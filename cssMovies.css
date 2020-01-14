@@ -74,3 +74,15 @@ body {
   .left {
     width: 150px;
   }
+
+  tr td h4 .edit{
+    display: none;
+  }
+  
+  tr td h4.edit .edit{
+    display: initial;
+  }
+
+  tr td h4.edit .noedit{
+    display: none;
+  }

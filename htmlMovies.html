@@ -8,29 +8,15 @@
 
     <title>Movies</title>
     <link rel="stylesheet" type="text/css" href="cssMovies.css" />
-    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/themes/base/jquery-ui.css"/>
-    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-   <script src="https://ajax.googleapis.com/ajax/libs/mootools/1.6.0/mootools.min.js"></script>
-    
-    <!-- <script src="jsMovie.js"></script> -->
 </head>
-    <body onload="createTable()">
-        <p>Click the "Add New Row" button to add row to the table. Enter values in each row and press the "Submit Movie" button.</p>
-
-        <p> <input type="button" id="addRow" value="Add New Row" onclick="addRow()" />
-    </p>
-        <!--THE CONTAINER WHERE WE'll ADD THE DYNAMIC TABLE-->
-        <div id="cont"></div>
-
-    <p><input type="button" id="bt" value="Submit Movie" onclick="submit()" /></p>
-</body>
    <header>
         <h1>Movie Database</h1>
     </header>
+    <h2>Add a Movie</h2>
+    <p>Title: <input type ="text" id="Title"></p>
+    <p>Genre: <input type ="text" id="Genre"></p>
+    <p>Director: <input type ="text" id="Director"></p>
+    <button id="add-movie">Add!</button>
 
     <div class="container">
         <table>
@@ -49,46 +35,50 @@
                           <h2>Director</h2>
                       </th>
                       <th colspan="1">
-                        <h2>Movie Poster</h2>
+                        <h2>Delete</h2>
+                    </th>
+                    <th colspan="1">
+                        <h2>Edit</h2>
                     </th>
                   </tr>
             </thead>
-        <tbody>
-            <!-- <tr><td class="left"><h4 id="Title"><a href="https://www.imdb.com/title/tt0407887/?ref_=fn_al_tt_1">The Departed</a></h4></td>
-                <td><h4 id="Genre">Drama</h4></td>
-                <td><h4 id="Director">Martin Scorsese</h4></td>
-                <td><img src="https://imgc.allpostersimages.com/img/print/u-g-F4Q3T40.jpg?w=900&h=900&p=0" width="150" height="150"/></td>
-            </tr>
-              <tr><td class="left"><h4><a href="https://www.imdb.com/title/tt0468569/?ref_=nv_sr_srsg_0">The Dark Knight</a></h4></td>
-                <td><h4>Drama</h4></td>
-                <td><h4>Christopher Nolan</h4></td>
-                <td><img src="https://images-na.ssl-images-amazon.com/images/I/81AJdOIEIhL._SY606_.jpg" width="150" height="150"/></td>
-            </tr>
-              <tr><td class="left"><h4><a href="https://www.imdb.com/title/tt1375666/?ref_=nv_sr_srsg_0">Inception</a></h4></td>
-                <td><h4>Inception</h4></td>
-                <td><h4>Christopher Nolan</h4></td>
-                <td><img src="https://cdn.shopify.com/s/files/1/1416/8662/products/inception_2010_advance_original_film_art_66f46508-3e2b-4de3-aa71-db767549e17d_2000x.jpg?v=1577405010" width="150" height="150"/></td>
-            </tr>
-              <tr><td class="left"><h4><a href="https://www.imdb.com/title/tt0910936/?ref_=nv_sr_srsg_0">Pineapple Express</a></h4></td>
-                <td><h4>Comedy</h4></td>
-                <td><h4>David Gordon</h4></td>
-                <td><img src="https://images-na.ssl-images-amazon.com/images/I/51KeJzRtqDL._SY450_.jpg" width="150" height="150"/></td>
-            </tr>
-              <tr><td class="left"><h4><a href="https://www.imdb.com/title/tt0095016/?ref_=nv_sr_srsg_0">Die Hard</a></h4></td>
-                <td><h4>Action</h4></td>
-                <td><h4>John Mctiernan</h4></td>
-                <td><img src="https://images-na.ssl-images-amazon.com/images/I/51l7e1ENZvL._AC_.jpg" width="150" height="150"/></td>
-            </tr> 
- </tbody>
-        </table>
-    </div> -->
-
-  <!--  <footer>
-        <h3><a href="https://www.imdb.com">IMDB</a></h3>
-        <h3></h3>
-        <h3></h3>
-    </footer> -->
-   
+        <tbody id = "movies">
+        <template id ="movie-template">
+            <tr> 
+                <td class='left'>
+                    <h4>
+                        <span class ="noedit title">{{Title}}</span>
+                        <input class="edit title"/>
+                    </h4>
+                </td> 
+                <td>
+                    <h4>
+                        <span class ="noedit genre">{{Genre}}</span>
+                        <input class="edit genre"/>
+                    </h4>
+                <td>  
+                <td>
+                    <h4>
+                        <span class ="noedit director">{{Director}}</span>
+                        <input class="edit director"/>
+                    </h4>
+                </td> 
+                <td>
+                    <h4>                       
+                        <button data-id='{{MovieId}}' class ='remove'>X</button>
+                    </h4>
+                </td>
+                <td>
+                    <h4>
+                        <button data-id='{{MovieId}}'class="editMovie noedit">Edit</button> 
+                        <button class="saveEdit edit">Save</button>                       
+                        <button class="cancelEdit edit">Cancel</button>                       
+                      
+                    </h4>
+                </td> 
+            </tr>            
+        </template>
+        </tbody>
     <script class id = "url" src="https://localhost:44352/api/Movie"></script>
     <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src = "jsMovie.js"></script>
