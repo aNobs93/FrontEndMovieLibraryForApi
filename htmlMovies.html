@@ -11,7 +11,6 @@
   
     <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
     
-    <!-- <script src="jsMovie.js"></script> -->
 </head>
 <body>
     <header>
@@ -22,7 +21,7 @@
     <p>Genre: <input type ="text" id="Genre"></p>
     <p>Director: <input type ="text" id="Director"></p>
     <button id="add-movie">Add!</button>
-    <p><input type="button" id="bt" value="Add" onclick="submit()"/></p>
+    <!-- <p><input type="button" id="bt" value="Add" onclick="submit()"/></p> -->
 
     <div class="container">
         <table>
@@ -40,37 +39,9 @@
                       <th colspan="1">
                           <h2>Director</h2>
                       </th>
-                      <!-- <th colspan="1">
-                        <h2>Movie Poster</h2>
-                    </th> -->
                   </tr>
             </thead>
         <tbody id ="movies">
-              <!-- <tr><td class="left"><h4></h4></td>
-                <td><h4></h4></td>
-                <td><h4></h4></td> -->
-             <!--   <td><img src="https://imgc.allpostersimages.com/img/print/u-g-F4Q3T40.jpg?w=900&h=900&p=0" width="150" height="150"/></td>
-            </tr>
-              <tr><td class="left"><h4><a href="https://www.imdb.com/title/tt0468569/?ref_=nv_sr_srsg_0">The Dark Knight</a></h4></td>
-                <td><h4>Drama</h4></td>
-                <td><h4>Christopher Nolan</h4></td>
-                <td><img src="https://images-na.ssl-images-amazon.com/images/I/81AJdOIEIhL._SY606_.jpg" width="150" height="150"/></td>
-            </tr>
-              <tr><td class="left"><h4><a href="https://www.imdb.com/title/tt1375666/?ref_=nv_sr_srsg_0">Inception</a></h4></td>
-                <td><h4>Inception</h4></td>
-                <td><h4>Christopher Nolan</h4></td>
-                <td><img src="https://cdn.shopify.com/s/files/1/1416/8662/products/inception_2010_advance_original_film_art_66f46508-3e2b-4de3-aa71-db767549e17d_2000x.jpg?v=1577405010" width="150" height="150"/></td>
-            </tr>
-              <tr><td class="left"><h4><a href="https://www.imdb.com/title/tt0910936/?ref_=nv_sr_srsg_0">Pineapple Express</a></h4></td>
-                <td><h4>Comedy</h4></td>
-                <td><h4>David Gordon</h4></td>
-                <td><img src="https://images-na.ssl-images-amazon.com/images/I/51KeJzRtqDL._SY450_.jpg" width="150" height="150"/></td>
-            </tr>
-              <tr><td class="left"><h4><a href="https://www.imdb.com/title/tt0095016/?ref_=nv_sr_srsg_0">Die Hard</a></h4></td>
-                <td><h4>Action</h4></td>
-                <td><h4>John Mctiernan</h4></td>
-                <td><img src="https://images-na.ssl-images-amazon.com/images/I/51l7e1ENZvL._AC_.jpg" width="150" height="150"/></td>
-            </tr> -->
  </tbody>
         </table>
     </div>
@@ -83,15 +54,5 @@
     <script class id = "url" src="https://localhost:44352/api/Movie"></script>
     <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src = "jsMovie.js"></script>
-    <!-- <script>
-    $(function(){
-        $.ajax({
-            type: 'Get',
-            url: 'https://localhost:44352/Api/Movie',
-            success: function(data){
-                console.log("This one");
-            }
-        });
-    });</script> -->
 </body>
 </html>
