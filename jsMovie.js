@@ -2,10 +2,17 @@ var $Title = $('#Title');
 var $Genre = $('#Genre');
 var $Director = $('#Director');
 var $moviesList = $('#movies');
+var movieTemplate = ""+"<tr>"+ 
+"<td class='left'><h4> {{Title}}</h4></td>" +
+"<td><h4>{{Genre}}</h4></td>" + 
+"<td><h4>{{Director}}</h4></td>" +
+"<td><h4><button data-id='{{MovieId}}' class ='remove'>X</button></h4></td>" +
+"</tr>";
 function addMovie(movie){
-    $moviesList.append('<tr><td class="left"><h4>' + movie.Title + '</h4></td><td><h4>' + movie.Genre + '</h4></td><td><h4>' + movie.Director + '</h4></td>')
+    $moviesList.append(Mustache.render(movieTemplate, movie));
+    // $moviesList.append('<tr><td class="left"><h4>' + movie.Title + '</h4></td><td><h4>' + movie.Genre + '</h4></td><td><h4>' + movie.Director + '</h4></td>')
 }
- $(function(){   
+$(function(){   
      $.ajax({
          type: 'Get',
          url: 'https://localhost:44352/Api/Movie',
@@ -37,6 +44,13 @@ function addMovie(movie){
                 alert('error saving order');
             }
         });
-     });
+    });
 
- });
+    $moviesList.delegate('.remove', 'click', function(){
+        $.ajax({
+            type: 'DELETE',
+            url: 'https://localhost:44352/Api/Movie/' + $(this).attr('data-id'),
+        })
+    })
+
+});
